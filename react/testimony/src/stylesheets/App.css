@@ -1,0 +1,23 @@
+:root {
+  --first-color: #090b10;
+  --second-color: #0f111a;
+  --third-color: #4f46e5;
+  --fourth-color: #cbd5e1;
+  --fitfh-color: #55667c;
+}
+
+h1 {
+  width: 92dvw;
+  height: 6rem;
+  font-size: 1.3em;
+  text-align: center;
+  text-wrap: balance;
+  padding: 0 10px 0;
+  color: var(--fourth-color);
+}
+
+.main {
+  width: 100dvw;
+  height: auto;
+  background-color: var(--third-color);
+}

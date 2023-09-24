@@ -1,0 +1,26 @@
+:root {
+  --first-color: #090b10;
+  --second-color: #0f111a;
+  --third-color: #4f46e5;
+  --fourth-color: #cbd5e1;
+  --fitfh-color: #55667c;
+}
+
+.main__image-testimony {
+  width: 100%;
+}
+
+.main__description-testimony {
+  width: 100%;
+  padding: 1.5rem;
+  display: grid;
+	gap: 1rem;
+	justify-items: center;
+	color: var(--fourth-color);
+}
+
+
+
+.comment {
+	text-align: justify;
+}
