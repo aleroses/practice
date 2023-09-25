@@ -1,26 +1,25 @@
 import React from "react";
+import ReactDOM from "react-dom/client";
 import "../stylesheets/Testimony.css";
 
 function Testimony(props) {
   return (
-    <React.Fragment>
+    <div className="section__testimony">
       <img
-        className="main__image-testimony"
+        className="img"
         src={require(`../images/testimony-${props.image}.png`)}
-        alt={`Picture ${props.name}`}
+        alt={`Testimony ${props.name}`}
       />
-      <section className="main__description-testimony">
+      <div className="description">
         <p className="name">
-          <strong>{props.name}</strong> en{" "}
-          {props.country}
+          {props.name} en {props.country}
         </p>
         <p className="job-title">
-          {props.jobtitle} en{" "}
-          <strong>{props.company}</strong>
+          {props.jobtitle} en {props.company}
         </p>
         <p className="comment">"{props.comment}"</p>
-      </section>
-    </React.Fragment>
+      </div>
+    </div>
   );
 }
 

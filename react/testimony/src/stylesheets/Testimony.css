@@ -1,26 +1,66 @@
 :root {
-  --first-color: #090b10;
-  --second-color: #0f111a;
-  --third-color: #4f46e5;
+  --first-color: #1b1b32;
+  --second-color: #0a0a23;
+  --third-color: #f5f6f7;
   --fourth-color: #cbd5e1;
   --fitfh-color: #55667c;
 }
 
-.main__image-testimony {
-  width: 100%;
-}
-
-.main__description-testimony {
-  width: 100%;
-  padding: 1.5rem;
+.section__testimony {
+  width: 320px;
+  height: auto;
+  /* display: flex;
+  flex-wrap: wrap; */
   display: grid;
-	gap: 1rem;
-	justify-items: center;
-	color: var(--fourth-color);
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-content: flex-start;
+
+  line-height: 25.7px;
+  text-align: center;
+  background-color: var(--second-color);
+  color: var(--third-color);
+  font-size: 21.6px;
 }
 
+.img {
+  width: 320px;
+  height: 320px;
+}
 
+/* .description {
+  width: 320px;
+  padding: 25px;
+  line-height: 25.7px;
+  text-align: center;
+  background-color: var(--second-color);
+  color: var(--third-color);
+  font-size: 21.6px;
+} */
+
+.name {
+  padding: 35px 0 5px;
+}
+
+.job-title {
+  padding: 15px 25px 0;
+}
 
 .comment {
-	text-align: justify;
+  padding: 25px;
+  text-align: justify;
+  font-size: 19.8px;
+}
+
+@media (min-width: 800px) {
+  .section__testimony {
+    width: 100%;
+    max-width: 1190px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+  }
+  .comment {
+    padding: 25px 50px;
+  }
 }
