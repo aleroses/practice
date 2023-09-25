@@ -4,6 +4,22 @@ This is a 🔥 [basic project](https://alevroses.github.io/testimony-react/) mad
 
 ![responsive](https://i.postimg.cc/sxcQzRr6/testimony-responsive.jpg)
 
+## Project Structure
+
+```mermaid
+graph LR
+    A[root \n index] --> B[App]
+    B --> C[figure > img \n logo]
+    B --> D[header > h1 \n title]
+    B --> E[section]
+    E --> F[Testimony \n Component]
+    F --> G[img \n student photo]
+    F --> H[div]
+    H --> I[p \n name country]
+    H --> J[p \n job-title company]
+    H --> K[p \n comment]
+```
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
