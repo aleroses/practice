@@ -1,0 +1,35 @@
+:root {
+  --first-color: #090b10;
+  --second-color: #0f111a;
+  --third-color: #4f46e5;
+  --fourth-color: #cbd5e1;
+  --fitfh-color: #55667c;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  /* size: Incluye borde y contenido w */
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--first-color);
+  font-family: "Lato", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100dvw;
+}
+
+code {
+  font-family: "Lato", sans-serif;
+}
+
+#root {
+  /* width: 100dvw; */
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 3rem 0 0 0;
+}
