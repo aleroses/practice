@@ -1,6 +1,6 @@
 # testimony-react
 
-This is a 🔥 [basic project](https://alevroses.github.io/testimony-react/) made with React.
+This is a 🔥 [basic project](https://alevroses.github.io/react__testimony/) made with React.
 
 ![responsive](https://i.postimg.cc/sxcQzRr6/testimony-responsive.jpg)
 
