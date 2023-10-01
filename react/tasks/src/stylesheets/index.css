@@ -1,0 +1,35 @@
+:root {
+  --first-color: #0a0a23;
+  --second-color: #1b1b32;
+  --third-color: #9f73ab;
+  --fourth-color: #a3c7d6;
+  --fitfh-color: #f5f6f7;
+  --dark-mode: #1b1b32;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--first-color);
+  font-family: "Lato", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+}
+
+code {
+  font-family: "Lato", sans-serif;
+}
+
+#root {
+  width: 98dvw;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
