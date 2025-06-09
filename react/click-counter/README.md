@@ -1,4 +1,4 @@
-# testimony-react
+# Click Counter
 
 This is a 🔥 [basic project](https://alevroses.github.io/react__click-counter/) made with React as practice.
 
