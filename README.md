@@ -10,6 +10,6 @@ This repository will host all the projects I will be practicing with.
 1. [Click Counter](https://alevroses.github.io/react__click-counter/)
 2. [Movie Search](https://alevroses.github.io/react__movie-search/)
 3. [Shopping Cart](https://alevroses.github.io/react__shopping-cart/)
-4. [Task List](https://github.com/facebook/create-react-app)
+4. [Task List](https://alevroses.github.io/react__tasks/)
 5. [Testimony](https://alevroses.github.io/react__testimony/)
 6. [Weather App](https://alevroses.github.io/react__weather-app/)
