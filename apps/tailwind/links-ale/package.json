@@ -1,0 +1,17 @@
+{
+  "name": "links-tailwind",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "build:styles": "npx @tailwindcss/cli -i ./input.css -o ./assets/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@midudev/tailwind-animations": "^0.2.0",
+    "@tailwindcss/cli": "^4.1.10",
+    "tailwindcss": "^4.1.10"
+  }
+}
