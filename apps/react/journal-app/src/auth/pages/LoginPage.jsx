@@ -8,41 +8,12 @@ import {
 } from "@mui/material";
 import { Link as RouterLink } from "react-router";
 import { Google } from "@mui/icons-material";
+import { AuthLayout } from "../layout/AuthLayout";
 
 export const LoginPage = () => {
   return (
-    <Box
-      component="main"
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "100vh",
-        bgcolor: "primary.main",
-        // padding: 4,
-      }}
-    >
-      <Box
-        component="section"
-        sx={{
-          width: {
-            xs: "80%",
-            sm: "60%",
-            md: "40%",
-            lg: "30%",
-          },
-          bgcolor: "white",
-          padding: { xs: 2, sm: 3, md: 4 },
-          borderRadius: 2,
-        }}
-      >
-        <Typography
-          variant="h5"
-          sx={{ mb: 2, textAlign: "center" }}
-        >
-          Login
-        </Typography>
-        <Grid container component="form" spacing={2}>
+    <AuthLayout title="Login">
+      <Grid container component="form" spacing={2}>
           <Grid size={{ xs: 12, md: 6 }}>
             <TextField
               id="email"
@@ -90,7 +61,6 @@ export const LoginPage = () => {
             Create an account
           </Link>
         </Grid>
-      </Box>
-    </Box>
+    </AuthLayout>
   );
 };
