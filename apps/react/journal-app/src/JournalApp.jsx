@@ -1,11 +1,12 @@
 import { AppRouter } from "./router/AppRouter";
+import { AppTheme } from "./theme/AppTheme";
 
-function App() {
+function JournalApp() {
   return (
-    <>
+    <AppTheme>
       <AppRouter />
-    </>
+    </AppTheme>
   );
 }
 
-export default App;
+export default JournalApp;
