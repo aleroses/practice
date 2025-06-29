@@ -51,7 +51,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
         </Toolbar>
       </AppBar>
 
-      <Drawer
+      {/* <Drawer
         anchor="left"
         open={open}
         onClose={() => setOpen(false)}
@@ -62,7 +62,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
         <Typography variant="h6" color="initial">
           LolCat
         </Typography>
-      </Drawer>
+      </Drawer> */}
     </>
   );
 };
