@@ -11,7 +11,7 @@ export const NoteView = () => {
   return (
     <>
       <Grid
-        constainer
+        container
         justifyContent="space-between"
         alignItems="center"
         sx={{
@@ -51,8 +51,8 @@ export const NoteView = () => {
             type="text"
             variant="filled"
             // label="Title"
-            // value={}
-            // onChange={}
+            value=""
+            onChange=""
             placeholder="What happened today?"
             fullWidth
             multiline
