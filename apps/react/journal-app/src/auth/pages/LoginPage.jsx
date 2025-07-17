@@ -68,6 +68,7 @@ export const LoginPage = () => {
             size="small"
             fullWidth
             name="password"
+            value={password}
             onChange={handleInputChange}
           />
         </Grid>
