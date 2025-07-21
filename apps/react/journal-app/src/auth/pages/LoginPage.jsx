@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import {
   Box,
   Typography,
@@ -18,12 +19,18 @@ import {
 } from "../../store/auth/thunks";
 
 export const LoginPage = () => {
+  const { status } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const { email, password, handleInputChange } = useForm({
     email: "aleghost@google.com",
     password: "123456",
   });
+
+  const isAuthenticating = useMemo(
+    () => status === "checking",
+    [status]
+  );
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -76,7 +83,12 @@ export const LoginPage = () => {
 
       <Grid container spacing={2} sx={{ mt: 2 }}>
         <Grid size={{ xs: 12, md: 6 }}>
-          <Button type="submit" variant="contained" fullWidth>
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            disabled={isAuthenticating}
+          >
             Login
           </Button>
         </Grid>
@@ -86,6 +98,7 @@ export const LoginPage = () => {
             fullWidth
             startIcon={<Google />}
             onClick={handleGoogleSignIn}
+            disabled={isAuthenticating}
           >
             Google
           </Button>
