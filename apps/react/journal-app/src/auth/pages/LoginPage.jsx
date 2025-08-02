@@ -15,14 +15,21 @@ import {
   checkingAuthentication,
   startGoogleSignIn,
 } from "../../store/auth/thunks";
+import { useSelector } from "react-redux";
 
 export const LoginPage = () => {
+  const { status } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const { email, password, handleInputChange } = useForm({
     email: "aleghost@google.com",
     password: "123456",
   });
+
+  const isAuthenticating = useMemo(
+    () => status === "checking",
+    [status]
+  );
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -75,7 +82,12 @@ export const LoginPage = () => {
 
       <Grid container spacing={2} sx={{ mt: 2 }}>
         <Grid size={{ xs: 12, md: 6 }}>
-          <Button variant="contained" fullWidth>
+          <Button
+            variant="contained"
+            fullWidth
+            type="submit"
+            disabled={isAuthenticating}
+          >
             Login
           </Button>
         </Grid>
@@ -85,6 +97,7 @@ export const LoginPage = () => {
             fullWidth
             startIcon={<Google />}
             onClick={handleGoogleSignIn}
+            disabled={isAuthenticating}
           >
             Google
           </Button>
