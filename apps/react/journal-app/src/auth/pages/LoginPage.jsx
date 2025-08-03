@@ -16,6 +16,7 @@ import {
   startGoogleSignIn,
 } from "../../store/auth/thunks";
 import { useSelector } from "react-redux";
+import { useMemo } from "react";
 
 export const LoginPage = () => {
   const { status } = useSelector((state) => state.auth);

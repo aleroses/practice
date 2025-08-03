@@ -8,10 +8,34 @@ import {
   Link,
 } from "@mui/material";
 
+const formData = {
+  email: "aleghost@google.com",
+  password: "123456",
+  displayName: "Ale Ghost",
+};
+
 export const RegisterPage = () => {
+  const {
+    displayName,
+    email,
+    password,
+    handleInputChange,
+    formState,
+  } = useForm(formData);
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log(formState);
+  };
+
   return (
     <AuthLayout title="Register">
-      <Grid container component="form" spacing={2}>
+      <Grid
+        container
+        component="form"
+        spacing={2}
+        onSubmit={onSubmit}
+      >
         <Grid size={{ xs: 12, md: 6 }}>
           <TextField
             id="fullname"
@@ -20,8 +44,9 @@ export const RegisterPage = () => {
             placeholder="Your full name"
             size="small"
             fullWidth
-            // value={}
-            // onChange={}
+            name="displayName"
+            value={displayName}
+            onChange={handleInputChange}
           />
         </Grid>
         <Grid size={{ xs: 12, md: 6 }}>
@@ -32,6 +57,9 @@ export const RegisterPage = () => {
             placeholder="email@google.com"
             size="small"
             fullWidth
+            name="email"
+            value={email}
+            onChange={handleInputChange}
           />
         </Grid>
         <Grid size={{ xs: 12, md: 6 }}>
@@ -42,15 +70,16 @@ export const RegisterPage = () => {
             placeholder="password"
             size="small"
             fullWidth
-            // value={}
-            // onChange={}
+            name="password"
+            value={password}
+            onChange={handleInputChange}
           />
         </Grid>
       </Grid>
 
       <Grid container spacing={2} sx={{ mt: 2 }}>
         <Grid size={{ xs: 12 }}>
-          <Button variant="contained" fullWidth>
+          <Button type="submit" variant="contained" fullWidth>
             Create account
           </Button>
         </Grid>
