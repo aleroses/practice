@@ -7,9 +7,10 @@ import {
   Typography,
   Link,
 } from "@mui/material";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { startCreatingUserWithEmailPassword } from "../../store/auth/thunks";
+import { useSelector } from "react-redux";
 
 const formData = {
   email: "aleghost@google.com",
@@ -36,6 +37,14 @@ export const RegisterPage = () => {
   const dispatch = useDispatch();
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const { status, errorMessage } = useSelector(
+    (state) => state.auth
+  );
+
+  const isCheckingAuthentication = useMemo(
+    () => status === "checking",
+    [status]
+  );
 
   const {
     email,
@@ -115,8 +124,19 @@ export const RegisterPage = () => {
       </Grid>
 
       <Grid container spacing={2} sx={{ mt: 2 }}>
+        <Grid
+          size={{ xs: 12 }}
+          display={!!errorMessage ? "" : none}
+        >
+          <Alert severity="error">{errorMessage}</Alert>
+        </Grid>
         <Grid size={{ xs: 12 }}>
-          <Button type="submit" variant="contained" fullWidth>
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            disabled={isCheckingAuthentication}
+          >
             Create account
           </Button>
         </Grid>
