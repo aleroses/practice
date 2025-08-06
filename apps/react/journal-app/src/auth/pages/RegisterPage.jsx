@@ -7,6 +7,7 @@ import {
   Typography,
   Link,
 } from "@mui/material";
+import { useState } from "react";
 
 const formData = {
   email: "aleghost@google.com",
@@ -30,6 +31,8 @@ const formValidations = {
 };
 
 export const RegisterPage = () => {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
   const {
     email,
     password,
@@ -44,6 +47,8 @@ export const RegisterPage = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+
+    setFormSubmitted(true);
     console.log(formState);
   };
 
@@ -66,7 +71,7 @@ export const RegisterPage = () => {
             name="displayName"
             value={displayName}
             onChange={handleInputChange}
-            error={!displayNameValid}
+            error={!!displayNameValid && formSubmitted}
             helperText={displayNameValid}
           />
         </Grid>
@@ -80,6 +85,8 @@ export const RegisterPage = () => {
             fullWidth
             name="email"
             value={email}
+            error={!!emailValid && formSubmitted}
+            helperText={emailValid}
             onChange={handleInputChange}
           />
         </Grid>
@@ -93,6 +100,8 @@ export const RegisterPage = () => {
             fullWidth
             name="password"
             value={password}
+            error={!!passwordValid && formSubmitted}
+            helperText={passwordValid}
             onChange={handleInputChange}
           />
         </Grid>
