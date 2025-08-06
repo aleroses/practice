@@ -35,12 +35,15 @@ export const startCreatingUserWithEmailPassword = ({
   return async (dispath) => {
     dispath(checkingCredentials());
 
-    const resp = await registerUserWithEmailPassword({
-      email,
-      password,
-      displayName,
-    });
+    const { ok, uid, photoURL, errorMessage } =
+      await registerUserWithEmailPassword({
+        email,
+        password,
+        displayName,
+      });
 
-    console.log(resp);
+    if (!ok) return dispath(logout({ errorMessage }));
+
+    dispath(login({ uid, displayName, email, photoURL }));
   };
 };
