@@ -8,6 +8,8 @@ import {
   Link,
 } from "@mui/material";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { startCreatingUserWithEmailPassword } from "../../store/auth/thunks";
 
 const formData = {
   email: "aleghost@google.com",
@@ -31,6 +33,8 @@ const formValidations = {
 };
 
 export const RegisterPage = () => {
+  const dispatch = useDispatch();
+
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const {
@@ -49,7 +53,10 @@ export const RegisterPage = () => {
     event.preventDefault();
 
     setFormSubmitted(true);
-    console.log(formState);
+
+    if (!isFormValid) return;
+
+    dispatch(startCreatingUserWithEmailPassword(formState));
   };
 
   return (
@@ -70,9 +77,9 @@ export const RegisterPage = () => {
             fullWidth
             name="displayName"
             value={displayName}
-            onChange={handleInputChange}
             error={!!displayNameValid && formSubmitted}
             helperText={displayNameValid}
+            onChange={handleInputChange}
           />
         </Grid>
         <Grid size={{ xs: 12, md: 6 }}>
