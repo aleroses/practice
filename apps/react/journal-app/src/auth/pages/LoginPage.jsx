@@ -14,17 +14,20 @@ import { useForm } from "../../hooks/useForm";
 import {
   checkingAuthentication,
   startGoogleSignIn,
+  startLoginWithEmailPassword,
 } from "../../store/auth/thunks";
 import { useSelector } from "react-redux";
 import { useMemo } from "react";
 
 export const LoginPage = () => {
-  const { status } = useSelector((state) => state.auth);
+  const { status, errorMessage } = useSelector(
+    (state) => state.auth
+  );
   const dispatch = useDispatch();
 
   const { email, password, handleInputChange } = useForm({
-    email: "aleghost@google.com",
-    password: "123456",
+    email: "",
+    password: "",
   });
 
   const isAuthenticating = useMemo(
@@ -35,8 +38,11 @@ export const LoginPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log({ email, password });
-    dispatch(checkingAuthentication());
+    // console.log({ email, password });
+    // dispatch(checkingAuthentication());
+    dispatch(
+      startLoginWithEmailPassword({ email, password })
+    );
   };
 
   const handleGoogleSignIn = () => {
@@ -82,26 +88,37 @@ export const LoginPage = () => {
       </Grid>
 
       <Grid container spacing={2} sx={{ mt: 2 }}>
-        <Grid size={{ xs: 12, md: 6 }}>
-          <Button
-            variant="contained"
-            fullWidth
-            type="submit"
-            disabled={isAuthenticating}
-          >
-            Login
-          </Button>
+        <Grid
+          size={{ xs: 12 }}
+          display={!!errorMessage ? "" : "none"}
+          sx={{
+            mt: 1,
+          }}
+        >
+          <Alert severity="error">{errorMessage}</Alert>
         </Grid>
-        <Grid size={{ xs: 12, md: 6 }}>
-          <Button
-            variant="contained"
-            fullWidth
-            startIcon={<Google />}
-            onClick={handleGoogleSignIn}
-            disabled={isAuthenticating}
-          >
-            Google
-          </Button>
+        <Grid container spacing={2} xs={{ mt: 2 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Button
+              variant="contained"
+              fullWidth
+              type="submit"
+              disabled={isAuthenticating}
+            >
+              Login
+            </Button>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Button
+              variant="contained"
+              fullWidth
+              startIcon={<Google />}
+              onClick={handleGoogleSignIn}
+              disabled={isAuthenticating}
+            >
+              Google
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
       <Grid container justifyContent="end" sx={{ mt: 2 }}>
