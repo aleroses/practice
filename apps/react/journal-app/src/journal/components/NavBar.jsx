@@ -10,9 +10,17 @@ import {
   Drawer,
 } from "@mui/material";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { startLogout } from "../../store/auth/thunks";
 
 export const NavBar = ({ drawerWidth = 240 }) => {
   const [open, setOpen] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const onLogout = () => {
+    dispatch(startLogout());
+  };
 
   return (
     <>
@@ -45,7 +53,11 @@ export const NavBar = ({ drawerWidth = 240 }) => {
             JournalApp
           </Typography>
 
-          <IconButton aria-label="" color="error">
+          <IconButton
+            aria-label=""
+            color="error"
+            onClick={onLogout}
+          >
             <LogoutOutlined />
           </IconButton>
         </Toolbar>

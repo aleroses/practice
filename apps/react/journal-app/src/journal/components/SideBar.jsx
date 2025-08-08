@@ -12,8 +12,11 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+import { useSelector } from "react-redux";
 
-export const SideBar = ({ drawerWidth }) => {
+export const SideBar = ({ drawerWidth = 240 }) => {
+  const { displayName } = useSelector((state) => state.auth);
+
   return (
     <Drawer
       variant="permanent"
@@ -31,7 +34,7 @@ export const SideBar = ({ drawerWidth }) => {
     >
       <Toolbar>
         <Typography variant="h6" noWrap component="div">
-          Ghost
+          {displayName}
         </Typography>
       </Toolbar>
       <Divider />
