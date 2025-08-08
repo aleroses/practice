@@ -9,27 +9,30 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { FirebaseAuth } from "../firebase/config";
 import { login, logout } from "../store/auth/authSlice";
+import { useCheckAuth } from "../hooks/useCheckAuth";
 
 export const AppRouter = () => {
-  const { status } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
+  const status = useCheckAuth();
+  
+  // const { status } = useSelector((state) => state.auth);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    onAuthStateChanged(FirebaseAuth, async (user) => {
-      if (!user) return dispatch(logout());
+  // useEffect(() => {
+  //   onAuthStateChanged(FirebaseAuth, async (user) => {
+  //     if (!user) return dispatch(logout());
 
-      const { uid, email, displayName, photoURL } = user;
+  //     const { uid, email, displayName, photoURL } = user;
 
-      dispatch(
-        login({
-          uid,
-          email,
-          displayName,
-          photoURL,
-        })
-      );
-    });
-  }, []);
+  //     dispatch(
+  //       login({
+  //         uid,
+  //         email,
+  //         displayName,
+  //         photoURL,
+  //       })
+  //     );
+  //   });
+  // }, []);
 
   if (status === "checking") {
     return <CheckingAuth />;
