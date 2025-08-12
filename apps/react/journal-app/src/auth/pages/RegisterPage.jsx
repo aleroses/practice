@@ -6,11 +6,13 @@ import {
   Button,
   Typography,
   Link,
+  Alert,
 } from "@mui/material";
 import { useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { startCreatingUserWithEmailPassword } from "../../store/auth/thunks";
 import { useSelector } from "react-redux";
+import { useForm } from "../../hooks/useForm";
 
 const formData = {
   email: "aleghost@google.com",
@@ -126,7 +128,7 @@ export const RegisterPage = () => {
       <Grid container spacing={2} sx={{ mt: 2 }}>
         <Grid
           size={{ xs: 12 }}
-          display={!!errorMessage ? "" : none}
+          display={!!errorMessage ? "" : "none"}
         >
           <Alert severity="error">{errorMessage}</Alert>
         </Grid>

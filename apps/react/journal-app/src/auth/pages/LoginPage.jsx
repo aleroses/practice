@@ -5,6 +5,7 @@ import {
   Grid,
   Button,
   Link,
+  Alert,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router";
 import { Google } from "@mui/icons-material";
@@ -97,7 +98,16 @@ export const LoginPage = () => {
         >
           <Alert severity="error">{errorMessage}</Alert>
         </Grid>
-        <Grid container spacing={2} xs={{ mt: 2 }}>
+        <Grid
+          container
+          spacing={2}
+          // xs={{ mt: 2 }}
+          size={{
+            xs: {
+              mt: 2,
+            },
+          }}
+        >
           <Grid size={{ xs: 12, md: 6 }}>
             <Button
               variant="contained"
