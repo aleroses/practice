@@ -1,24 +1,20 @@
+import { useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link as RouterLink } from "react-router";
 import {
-  Box,
-  Typography,
   TextField,
   Grid,
   Button,
   Link,
   Alert,
 } from "@mui/material";
-import { Link as RouterLink } from "react-router";
 import { Google } from "@mui/icons-material";
 import { AuthLayout } from "../layout/AuthLayout";
-import { useDispatch } from "react-redux";
 import { useForm } from "../../hooks/useForm";
 import {
-  checkingAuthentication,
   startGoogleSignIn,
   startLoginWithEmailPassword,
 } from "../../store/auth/thunks";
-import { useSelector } from "react-redux";
-import { useMemo } from "react";
 
 export const LoginPage = () => {
   const { status, errorMessage } = useSelector(
@@ -110,21 +106,21 @@ export const LoginPage = () => {
         >
           <Grid size={{ xs: 12, md: 6 }}>
             <Button
+              disabled={isAuthenticating}
+              type="submit"
               variant="contained"
               fullWidth
-              type="submit"
-              disabled={isAuthenticating}
             >
               Login
             </Button>
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
             <Button
+              disabled={isAuthenticating}
               variant="contained"
               fullWidth
               startIcon={<Google />}
               onClick={handleGoogleSignIn}
-              disabled={isAuthenticating}
             >
               Google
             </Button>

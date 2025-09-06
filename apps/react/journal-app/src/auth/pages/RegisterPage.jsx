@@ -1,4 +1,4 @@
-import { Link as RouterLink } from "react-router";
+import { useMemo, useState } from "react";
 import { AuthLayout } from "../layout/AuthLayout";
 import {
   TextField,
@@ -8,10 +8,9 @@ import {
   Link,
   Alert,
 } from "@mui/material";
-import { useMemo, useState } from "react";
-import { useDispatch } from "react-redux";
+import { Link as RouterLink } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import { startCreatingUserWithEmailPassword } from "../../store/auth/thunks";
-import { useSelector } from "react-redux";
 import { useForm } from "../../hooks/useForm";
 
 const formData = {
@@ -49,15 +48,15 @@ export const RegisterPage = () => {
   );
 
   const {
+    formState,
+    displayName,
     email,
     password,
-    displayName,
     handleInputChange,
     isFormValid,
     displayNameValid,
     emailValid,
     passwordValid,
-    formState,
   } = useForm(formData, formValidations);
 
   const onSubmit = (event) => {
@@ -134,10 +133,10 @@ export const RegisterPage = () => {
         </Grid>
         <Grid size={{ xs: 12 }}>
           <Button
+            disabled={isCheckingAuthentication}
             type="submit"
             variant="contained"
             fullWidth
-            disabled={isCheckingAuthentication}
           >
             Create account
           </Button>

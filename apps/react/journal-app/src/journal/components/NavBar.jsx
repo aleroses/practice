@@ -7,7 +7,6 @@ import {
   Toolbar,
   Typography,
   IconButton,
-  Drawer,
 } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
